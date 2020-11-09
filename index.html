@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <script src="js/pixi.min.js"></script>
+  <body>
+    <script type="text/javascript">
+      //init
+      let type = "WebGL"
+      if(!PIXI.utils.isWebGLSupported()){
+        type = "canvas"
+      }
+  
+      PIXI.utils.sayHello(type)
+
+      let app = new PIXI.Application(
+        {
+          width: 750, 
+          height: 750,
+          transparent: false
+        }
+      );
+      document.body.appendChild(app.view);
+      app.renderer.view.style.position = "absolute";
+      app.renderer.view.style.display = "block";
+      app.renderer.autoResize = true;
+      app.renderer.resize(window.innerWidth, window.innerHeight);
+
+      //render/sprites
+      PIXI.loader
+        .add(["images/dice-six-faces-one.png",
+              "images/dice-six-faces-two.png",
+              "images/dice-six-faces-three.png",
+              "images/dice-six-faces-four.png",
+              "images/dice-six-faces-five.png",
+              "images/dice-six-faces-six.png"])
+        .load(setup);
+      
+
+      function setup() {
+        let one = new PIXI.Sprite(
+          PIXI.loader.resources["images/dice-six-faces-one.png"].texture
+        );
+        let two = new PIXI.Sprite(
+          PIXI.loader.resources["images/dice-six-faces-two.png"].texture
+        );
+        app.stage.addChild(one);
+        app.stage.addChild(two);
+      }
+
+    </script>
+  </body>
+</html>
+
