@@ -1,57 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Test</title>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <script src="js/pixi.min.js"></script>
-  <body>
+    <base href="./">
+</head>
+<body>
+    <div class="projectMenu">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="logIn.html">Log In</a>
+        <a href="signUP.html">Sign Up</a>
+    </div>
+
+    <script src="scripts.js"></script>
+    <!-- Required dependencies -->
+    <script src="js/pixi.min.js"></script>
+    <script src="node_modules/pixi-particles/dist/pixi-particles.js"></script>
+    <!-- Background animation script -->
     <script type="text/javascript">
-      //init
-      let type = "WebGL"
-      if(!PIXI.utils.isWebGLSupported()){
-        type = "canvas"
-      }
-  
-      PIXI.utils.sayHello(type)
-
-      let app = new PIXI.Application(
-        {
-          width: 750, 
-          height: 750,
-          transparent: false
+        //init
+        let type = "WebGL"
+        if(!PIXI.utils.isWebGLSupported()){
+          type = "canvas"
         }
-      );
-      document.body.appendChild(app.view);
-      app.renderer.view.style.position = "absolute";
-      app.renderer.view.style.display = "block";
-      app.renderer.autoResize = true;
-      app.renderer.resize(window.innerWidth, window.innerHeight);
-
-      //render/sprites
-      PIXI.loader
-        .add(["images/dice-six-faces-one.png",
-              "images/dice-six-faces-two.png",
-              "images/dice-six-faces-three.png",
-              "images/dice-six-faces-four.png",
-              "images/dice-six-faces-five.png",
-              "images/dice-six-faces-six.png"])
-        .load(setup);
-      
-
-      function setup() {
-        let one = new PIXI.Sprite(
-          PIXI.loader.resources["images/dice-six-faces-one.png"].texture
+    
+        PIXI.utils.sayHello(type)
+        
+        let app = new PIXI.Application(
+          {
+            width: 750, 
+            height: 750,
+            transparent: false
+          }
         );
-        let two = new PIXI.Sprite(
-          PIXI.loader.resources["images/dice-six-faces-two.png"].texture
-        );
-        app.stage.addChild(one);
-        app.stage.addChild(two);
-      }
-
+        document.body.appendChild(app.view);
+        app.renderer.view.style.position = "absolute";
+        app.renderer.view.style.display = "block";
+        app.renderer.autoResize = true;
+        app.renderer.backgroundColor = 0xe09be0;
+        app.renderer.resize(window.innerWidth, window.innerHeight);
+  
+        app.stage.interactive = true;
+        //render sprites
+        PIXI.loader
+          .add(["images/row-1-col-1.png",
+                "images/row-1-col-2.png",
+                "images/row-1-col-3.png",
+                "images/row-2-col-1.png",
+                "images/row-2-col-2.png",
+                "images/row-2-col-3.png",
+                "images/row-3-col-1.png",
+                "images/row-3-col-2.png",
+                "images/row-3-col-3.png"])
+          .load(setup);
+        
+  
+        function setup() {
+        }
+        // Create a new emitter
+        // note: if importing library like "import * as particles from 'pixi-particles'"
+        // or "const particles = require('pixi-particles')", the PIXI namespace will
+        // not be modified, and may not exist - use "new particles.Emitter()", or whatever
+        // your imported namespace is
+        var emitter = new PIXI.particles.Emitter(
+        app.stage,
+        // The collection of particle images to use
+        [PIXI.Texture.fromImage('images/row-1-col-1.png'), 
+         PIXI.Texture.fromImage('images/row-1-col-2.png'),
+         PIXI.Texture.fromImage('images/row-1-col-3.png'),
+         PIXI.Texture.fromImage('images/row-2-col-1.png'),
+         PIXI.Texture.fromImage('images/row-2-col-2.png'),
+         PIXI.Texture.fromImage('images/row-2-col-3.png'),
+         PIXI.Texture.fromImage('images/row-3-col-1.png'),
+         PIXI.Texture.fromImage('images/row-3-col-2.png'),
+         PIXI.Texture.fromImage('images/row-3-col-3.png')],
+  
+        // Emitter configuration, edit this to change the look
+        // of the emitter
+        {
+      "alpha": {
+          "start": 1,
+          "end": 0
+      },
+      "scale": {
+          "start": 0.25,
+          "end": 1,
+          "minimumScaleMultiplier": 0.96
+      },
+      "color": {
+          "start": "#ffffff",
+          "end": "#ffffff"
+      },
+      "speed": {
+          "start": 50,
+          "end": 0,
+          "minimumSpeedMultiplier": 2
+      },
+      "acceleration": {
+          "x": 0,
+          "y": 0
+      },
+      "maxSpeed": 0,
+      "startRotation": {
+          "min": 4,
+          "max": 360
+      },
+      "noRotation": false,
+      "rotationSpeed": {
+          "min": 100,
+          "max": 200
+      },
+      "lifetime": {
+          "min": 10,
+          "max": 15
+      },
+      "blendMode": "normal",
+      "frequency": 0.1,
+      "emitterLifetime": -1,
+      "maxParticles": 130,
+      "pos": {
+          "x": window.innerWidth / 2,
+          "y": window.innerHeight / 2,
+      },
+      "addAtBack": true,
+      "spawnType": "point"
+  });
+      // Calculate the current time
+      var elapsed = Date.now();
+  
+      // Update function every frame
+      var update = function(){
+  
+        // Update the next frame
+        requestAnimationFrame(update);
+  
+        var now = Date.now();
+  
+        // The emitter requires the elapsed
+        // number of seconds since the last update
+        emitter.update((now - elapsed) * 0.001);
+        elapsed = now;
+  
+      // Should re-render the PIXI Stage
+      // renderer.render(stage);
+      };
+  
+      // Start emitting
+      emitter.emit = true;
+  
+      // Start the update
+      update();
+  
+      window.onresize = () =>
+              {
+                  app.width = window.innerWidth;
+                  app.height = window.innerHeight;
+                  app.renderer.resize(app.width, app.height);
+                  if (this.bg)
+                  {
+                      // bg is a 1px by 1px image
+                      this.bg.scale.x = app.width;
+                      this.bg.scale.y = app.height;
+                  }
+              };
+              window.onresize();
     </script>
-  </body>
-</html>
+    
 
+
+    <link rel="stylesheet" href="css/home.css">
+    <div class="container">
+        <div class="center">
+
+
+    <img src="images/logo.png" alt="Logo">
+        </div>
+    </div>
+
+<!--
+    <div class="container">
+        <div class="center">
+            <a href="playPage.html"><button class="button"> Play </button></a>
+        </div>
+    </div>
+--> 
+
+
+
+
+<div class="container">
+    <div class="center">
+        <a href="defaultQuestions.html"><button class="button"> Default Questions </button></a>
+    </div>
+</div>
+<div class="container">
+    <div class="center">
+        <a href="createQuestions.html"><button class="button"> Create Questions </button></a>
+    </div>
+</div>
+<div class="container">
+    <div class="center">
+        <a href="enterCode.html"><button class="button"> Enter Code </button></a>
+    </div>
+</div>
+
+
+
+    <!--
+    <div class="container">
+        <div class="center">
+    <button>
+        <span>Jelly Button</span>
+    </button>
+
+</div>
+</div>
+-->
+
+
+
+
+</body>
+</html>

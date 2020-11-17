@@ -1,0 +1,14 @@
+{
+  "name": "campusrush",
+  "version": "1.0.0",
+  "description": "Packages required for campus rush application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maxwell",
+  "license": "ISC",
+  "dependencies": {
+    "pixi-particles": "^4.3.0"
+  }
+}

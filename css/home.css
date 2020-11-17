@@ -1,0 +1,155 @@
+/* Add a black background color to the top navigation */
+.projectMenu {
+  background-color: white; /*#333;*/
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.projectMenu a {
+  float: left;
+  color: black; /*#f2f2f2;*/
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.projectMenu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.projectMenu a.active {
+  background-color: purple; /*#4CAF50;*/
+  color: white;
+}
+
+body {background-color: #e09be0;}
+
+.button {
+  background-color: yellow ; /* #4CAF50;  */
+  border: 3px solid red;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+
+.container { 
+  height: 200px;
+  position: relative;
+}
+
+
+
+.QuestionContainer { 
+  height: 25px;
+  position: relative;
+  border: 3px solid #e09be0; 
+}
+
+.QuestionContainers { 
+  height: 100px;
+  position: relative;
+  border: 3px solid #e09be0; 
+}
+
+.questionText {
+  text-align:center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  background-color: white; /* #4CAF50;  */
+  border: 3px solid red;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+.centerGameCodeText {
+  text-align:center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  background-color: yellow ; /* #4CAF50;  */
+  border: 3px solid red;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+
+}
+
+.enterQuestionContainer{
+  text-align:center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  background-color: yellow ; /* #4CAF50;  */
+  border: 3px solid red;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+
+}
+
+
+
+
+
+
+.centerText {
+
+  text-align:center;
+  margin: 0;
+  position: absolute;
+  top: 200% ;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size:25px;
+}
+
+
+
+
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
