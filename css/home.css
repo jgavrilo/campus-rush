@@ -1,6 +1,6 @@
 /* Add a black background color to the top navigation */
 .projectMenu {
-  background-color: white; /*#333;*/
+  background-color: #aa49b4; /*#333;*/
   overflow: hidden;
 }
 
@@ -10,13 +10,15 @@
   color: black; /*#f2f2f2;*/
   text-align: center;
   padding: 14px 16px;
+  font: inherit;
+  font-family: 'pixPixelFJVerdana12pt';
   text-decoration: none;
   font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .projectMenu a:hover {
-  background-color: #ddd;
+  background-color: #ffe031;
   color: black;
 }
 
@@ -28,15 +30,36 @@
 
 body {background-color: #e09be0;}
 
+@font-face{
+  font-family: 'pixPixelFJVerdana12pt';
+  src: url('../css/fonts/pixPixelFJVerdana12pt.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../css/fonts/pixPixelFJVerdana12pt.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
 .button {
-  background-color: yellow ; /* #4CAF50;  */
-  border: 3px solid red;
-  color: black;
-  padding: 15px 32px;
+  padding: 15px 25px;
+  font-size: 24px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  font: inherit;
+  font-family: 'pixPixelFJVerdana12pt';
+  background-color: #aa49b4;
+  border-style: dashed;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {
+  background-color: #ffe031;
+  transition: all .2s ease-in;
+}
+
+.button:active {
+  background-color: #ffe031;
+  box-shadow: 0 5px #777;
+  transform: translateY(4px);
+  
 }
 
 
@@ -132,6 +155,8 @@ body {background-color: #e09be0;}
   text-align:center;
   margin: 0;
   position: absolute;
+  font: inherit;
+  font-family: 'pixPixelFJVerdana12pt';
   top: 200% ;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
