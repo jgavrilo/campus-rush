@@ -145,10 +145,11 @@ body {background-color: #e09be0;}
 
 }
 
-
-
-
-
+.centerImage {
+  
+  text-align:center;
+  padding-top: 20px;
+}
 
 .centerText {
 
@@ -164,9 +165,16 @@ body {background-color: #e09be0;}
   font-size:15px;
 }
 
+.centerQuestionText {
 
-
-
+  text-align:center;
+  margin: 0;
+  position: relative;
+  font: inherit;
+  font-family: 'pixPixelFJVerdana12pt';
+  font-size:15px;
+  transform: translate(0, 400%);
+}
 
 .center {
   margin: 0;
@@ -184,31 +192,17 @@ body {background-color: #e09be0;}
   align-items: center;
 }
 
-.quizstart-btn, .quiznext-btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 20px;
-}
-
-.quizbtn-grid {
+.button-grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, [col-start] 1fr);
   gap: 10px;
-  margin: 20px 0;
+  padding: 10px;
 }
 
-.quizbtn {
-  --hue: var(--hue-neutral);
-  border: 1px solid hsl(var(--hue), 100%, 30%);
-  background-color: hsl(var(--hue), 100%, 50%);
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: white;
-  outline: none;
-}
-
-.quiz-btn:hover {
-  border-color: black;
+.button-grid > div{
+  text-align: center;
+  padding: 20px 0;
+  font-size: 15px;
 }
 
 :root {

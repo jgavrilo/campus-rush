@@ -8,28 +8,35 @@
     <div class="projectMenu">
         <a class="active" href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="logIn.html">Log In</a>
-        <a href="signUP.html">Sign Up</a>
     </div>
 
+
     <link rel="stylesheet" href="css/home.css">
-</head>
-<body>
-  <div class="container">
-    <div id="question-container" class="hide">
-      <div id="question">Question</div>
-      <div id="answer-buttons" class="btn-grid">
-        <button class="btn">Answer 1</button>
-        <button class="btn">Answer 2</button>
-        <button class="btn">Answer 3</button>
-        <button class="btn">Answer 4</button>
-      </div>
-    </div>
-    <div class="controls">
-      <button id="start-btn" class="start-btn btn">Start</button>
-      <button id="next-btn" class="next-btn btn hide">Next</button>
-    </div>
-  </div>
+
+    <div class = "container"><!-- THIS IS OPTIONAL - Image, interface with Firebase -->
+        <div class="centerImage">
+            <img src="images/temp.png" alt="Temp" width = "550" height="300"> <!--CHANGE IMAGE SOURCING WITH JS! -->
+        </div>
+    </div>  
+
+    <div class = "container"><!-- Question -->
+        <div class="centerQuestionText">
+            <p>What's 9 + 10?</p> <!-- Interface with the input -->
+         </div>
+    </div>  
+
+    <div class = "container"><!-- Answer -->
+        <div class="button-grid">
+            <div class="item1"><a href="index.html"><button class="button"> 21 </button></a></div> <!-- Gather Inputs -->
+
+            <div class="item2"><a href="index.html"><button class="button"> 19 </button></a></div>
+ 
+            <div class="item3"><a href="index.html"><button class="button"> 0 </button></a></div>
+
+            <div class="item4"><a href="index.html"><button class="button"> None of the above </button></a></div>
+        </div>
+    </div>  
+
 
 
 
