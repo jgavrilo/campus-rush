@@ -2,43 +2,60 @@
 <html>
 <body>
 
-    <script src="scripts.js"></script>
-
-
     <div class="projectMenu">
         <a class="active" href="index.html">Home</a>
         <a href="about.html">About</a>
     </div>
 
-
     <link rel="stylesheet" href="css/home.css">
 
-    <div class = "container"><!-- THIS IS OPTIONAL - Image, interface with Firebase -->
+<!--     <div class = "container"> THIS IS OPTIONAL - Image, interface with Firebase
         <div class="centerImage">
-            <img src="images/temp.png" alt="Temp" width = "550" height="300"> <!--CHANGE IMAGE SOURCING WITH JS! -->
+            <img src="images/temp.png" alt="Temp" width = "500" height="250"> CHANGE IMAGE SOURCING WITH JS!
         </div>
-    </div>  
+    </div> 
 
-    <div class = "container"><!-- Question -->
+    <div class = "container">
         <div class="centerQuestionText">
-            <p>What's 9 + 10?</p> <!-- Interface with the input -->
+            <p>What's 9 + 10?</p> Interface with the input
          </div>
     </div>  
 
-    <div class = "container"><!-- Answer -->
-        <div class="button-grid">
-            <div class="item1"><a href="index.html"><button class="button"> 21 </button></a></div> <!-- Gather Inputs -->
-
+    <div class = "container"> 
+        <div class="button-grid"> 
+            <div class="item1"><a href="index.html"><button class="button"> 21 </button></a></div>  Gather inputs
             <div class="item2"><a href="index.html"><button class="button"> 19 </button></a></div>
- 
             <div class="item3"><a href="index.html"><button class="button"> 0 </button></a></div>
-
             <div class="item4"><a href="index.html"><button class="button"> None of the above </button></a></div>
         </div>
-    </div>  
+    </div> 
+-->
 
+    <div class="container">
+        <div id="start"><button class="button" onClick= "beginQuiz()">Begin the Quiz!</button> </div>
+        
+        <div class="button-grid">
+        <div id="quiz" style="display: none">
+            <h2 id="quizQuestion"></h2>
+            
+            <div class = "img-div">
+            <!-- <div class = "img-div" id="quizImg"></div> -->
+            
+            <div id="choices">
+                <button id="choiceA" onclick="check('A')"></button>
+                <button id="choiceB" onclick="check('B')"></button>
+                <button id="choiceC" onclick="check('C')"></button>
+                <button id="choiceD" onclick="check('D')"></button>
+            </div>
+            <div id="choiceResponse" style="display: none"></div>
+        </div>
+    </div>
 
+        <div id="scoreBlock" style="display: none"></div>
+        <div id="scoreMessage" style="display: none"></div>
+        <div><button id="quizAgain" class="quizRestart" style="display: none" onClick="restartQuiz()">Try Again!</button></div>
+    </div>
 
-
+    </div><script src="scripts.js"></script>
 </body>
 </html>
