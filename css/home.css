@@ -210,3 +210,9 @@ body {background-color: #e09be0;}
   --hue-wrong: 0;
   --hue-correct: 145;
 }
+
+.img-div {
+  text-align: center;
+}
+
+
