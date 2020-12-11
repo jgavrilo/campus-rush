@@ -126,13 +126,13 @@ function showScore() {
     scoreBlock.innerHTML = "<p> You scored " + score + " out of " + questions.length + "!</p>";
 
     if (score < 4) {
-        scoreBlock.innerHTML = "<p><br/>Not so good!</p>";
+        scoreMessage.innerHTML = "<p><br/>Not so good!</p>";
     }
     else if (score < 8) {
-        scoreBlock.innerHTML = "<p><br/>Not bad! But still room for improvement.</p>"
+        scoreMessage.innerHTML = "<p><br/>Not bad! But still room for improvement.</p>"
     }
     else {
-        scoreBlock.innerHTML = "<p><br/>Great work!</p>"
+        scoreMessage.innerHTML = "<p><br/>Great work!</p>"
     }
     scoreMessage.style.display = "block";
     quizAgain.style.display = "block";
