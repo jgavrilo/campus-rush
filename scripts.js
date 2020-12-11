@@ -140,28 +140,27 @@ function showScore() {
 
 //function to check if answer is correct
 function check(answer) {
-  if (questionIndex < questions.length - 1) {
-    getQuestion();
-}
-  else {
-    showScore();
-}
-
 if (answer == questions[questionIndex].correctAnswer) {
   score++;
   questionIndex++;
   choices.style.display = "none";
   choiceResponse.innerHTML= '<p style="color:green">Correct!</p>';
   choiceResponse.style.display = "block";
-  setTimeout(getQuestion,500);
 }
 else {
   questionIndex++;
   choices.style.display = "none";
   choiceResponse.innerHTML= '<p style="color:red">Incorrect!</p>';
   choiceResponse.style.display = "block";
-  setTimeout(getQuestion,500);
   }
+
+if (questionIndex <= questions.length - 1) {
+  setTimeout(getQuestion,500);
+}
+else {
+  setTimeout(showScore,500);
+}
+
 }
 
 function restartQuiz() {
