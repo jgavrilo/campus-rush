@@ -101,41 +101,41 @@ let questions = [{
 
 //getQuestion function
 function getQuestion() {
-    choiceResponse.style.display = "none";
-    let q = questions[questionIndex];
-    quizQuestion.innerHTML = "<p>Question " +(questionIndex+1) + ": " + q.question + "</p>";
-    //quizImg.innerHTML = "<img src=" + q.imgSrc + ">";
-    optionA.innerHTML = q.choiceA;
-    optionB.innerHTML = q.choiceB;
-    optionC.innerHTML = q.choiceC;
-    optionD.innerHTML = q.choiceD;
-    choices.style.display = "block";
+  choiceResponse.style.display = "none";
+  let q = questions[questionIndex];
+  quizQuestion.innerHTML = "<p>Question " +(questionIndex+1) + ": " + q.question + "</p>";
+  //quizImg.innerHTML = "<img src=" + q.imgSrc + ">";
+  optionA.innerHTML = q.choiceA;
+  optionB.innerHTML = q.choiceB;
+  optionC.innerHTML = q.choiceC;
+  optionD.innerHTML = q.choiceD;
+  choices.style.display = "block";
 }
 
 // start quiz
 function beginQuiz() {
-    start.style.display ="none";
-    getQuestion();
-    quiz.style.display = "block";
+  start.style.display ="none";
+  getQuestion();
+  quiz.style.display = "block";
 }
 
 // show score function
 function showScore() {
-    quiz.style.display = "none";
-    scoreBlock.style.display = "block";
-    scoreBlock.innerHTML = "<p> You scored " + score + " out of " + questions.length + "!</p>";
-
-    if (score < 4) {
-        scoreMessage.innerHTML = "<p><br/>Not so good!</p>";
-    }
-    else if (score < 8) {
-        scoreMessage.innerHTML = "<p><br/>Not bad! But still room for improvement.</p>"
-    }
-    else {
-        scoreMessage.innerHTML = "<p><br/>Great work!</p>"
-    }
-    scoreMessage.style.display = "block";
-    quizAgain.style.display = "block";
+  quiz.style.display = "none";
+  scoreBlock.style.display = "block";
+  scoreBlock.innerHTML = "<p> You scored " + score + " out of " + questions.length + "!</p>";
+  //this if-else if-else is preferable with 10 questions
+  if (score < 4) {
+    scoreMessage.innerHTML = "<p>Not so good!</p>";
+  }
+  else if (score < 8) {
+    scoreMessage.innerHTML = "<p>Not bad! But still room for improvement.</p>";
+  }
+  else {
+    scoreMessage.innerHTML = "<p>Great work!</p>";
+  }
+  scoreMessage.style.display = "block";
+  quizAgain.style.display = "block";
 }
 
 //function to check if answer is correct
@@ -149,18 +149,19 @@ function check(answer) {
 
 if (answer == questions[questionIndex].correctAnswer) {
   score++;
+  questionIndex++;
   choices.style.display = "none";
-  choiceResponse.innerHTML= '<p style="color:green">Correct!</p>'
+  choiceResponse.innerHTML= '<p style="color:green">Correct!</p>';
   choiceResponse.style.display = "block";
   setTimeout(getQuestion,500);
 }
 else {
+  questionIndex++;
   choices.style.display = "none";
-  choiceResponse.innerHTML= '<p style="color:red">Incorrect!</p>'
+  choiceResponse.innerHTML= '<p style="color:red">Incorrect!</p>';
   choiceResponse.style.display = "block";
   setTimeout(getQuestion,500);
   }
-  questionIndex++;
 }
 
 function restartQuiz() {
