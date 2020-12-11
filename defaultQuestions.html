@@ -111,14 +111,11 @@
   <div id="quiz" style="display: none">
       <h2 id="quizQuestion"></h2>
       
-      <div class = "img-div">
-      <!-- <div class = "img-div" id="quizImg"></div> -->
-      
       <div id="choices">
-          <button id="choiceA" onclick="check('A')"></button>
-          <button id="choiceB" onclick="check('B')"></button>
-          <button id="choiceC" onclick="check('C')"></button>
-          <button id="choiceD" onclick="check('D')"></button>
+          <button id="choiceA" class="button" onclick="check('A')"></button>
+          <button id="choiceB" class="button" onclick="check('B')"></button>
+          <button id="choiceC" class="button" onclick="check('C')"></button>
+          <button id="choiceD" class="button" onclick="check('D')"></button>
       </div>
       <div id="choiceResponse" style="display: none"></div>
   </div>
@@ -126,7 +123,7 @@
 
   <div id="scoreBlock" style="display: none"></div>
   <div id="scoreMessage" style="display: none"></div>
-  <div><button id="quizAgain" class="quizRestart" style="display: none" onClick="restartQuiz()">Try Again!</button></div>
+  <div><button id="quizAgain" class="button" style="display: none" onClick="restartQuiz()">Try Again!</button></div>
 </div>
 </div>
 <script src="scripts.js"></script>
