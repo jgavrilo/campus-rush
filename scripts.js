@@ -234,13 +234,13 @@ function showScore() {
     scoreBlock.innerHTML = "<p> You scored " + score + " out of 10!</p>";
 
     if (score < 4) {
-        scoreMessage.innerHTML = "<p>Not so good!</p>";
+        scoreBlock.innerHTML = "<p><br/>Not so good!</p>";
     }
     else if (score < 8) {
-        scoreMessage.innerHTML = "<p>Not bad! But still room for improvement.</p>"
+        scoreBlock.innerHTML = "<p><br/>Not bad! But still room for improvement.</p>"
     }
     else {
-        scoreMessage.innerHTML = "<p>Great work!</p>"
+        scoreBlock.innerHTML = "<p><br/>Great work!</p>"
     }
     scoreMessage.style.display = "block";
     quizAgain.style.display = "block";
@@ -248,6 +248,36 @@ function showScore() {
 
 //function to check if answer is correct
 function check(answer) {
+	var funct = "";
+    if (questionIndex < questions.length - 1) {
+		funct = "getQuestion";
+	}
+    else {
+		funct = "showScore";
+	}
+	
+	if (answer == questions[questionIndex].correctAnswer) {
+		score++;
+		choices.style.display = "none";
+		choiceResponse.innerHTML = '<p style="color:green">Correct!</p>' +
+			'<p style="color:black">That was the right answer.</p>'+
+			'<p><br/></p>'+
+			'<a href="index.html" class="button" >Exit</a>'+
+			'<a class="button" onclick="'+funct+'()">Next Question -></a>';"<p>Correct!</p>";
+		choiceResponse.style.display = "block";
+	}
+	else {
+		choices.style.display = "none";
+		choiceResponse.innerHTML= '<p style="color:red">Incorrect!</p>'+
+			'<p style="color:black">That was not the right answer.</p>'+
+			'<p><br/></p>'+
+			'<a href="index.html" class="button" >Exit</a>'+
+			'<a class="button" onclick="'+funct+'()">Next Question -></a>';"<p>Correct!</p>";
+		choiceResponse.style.display = "block";
+    }
+    questionIndex++;
+}
+/*function check(answer) {
     if (questionIndex < questions.length - 1) {
         if (answer == questions[questionIndex].correctAnswer) {
             score++;
@@ -280,7 +310,7 @@ function check(answer) {
             setTimeout(showScore,500);
         }
     }
-}
+}*/
 
 function restartQuiz() {
     start.style.display = "block";
