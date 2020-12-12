@@ -26,32 +26,6 @@ var scoreBlock = document.getElementById("scoreBlock");
 var scoreMessage = document.getElementById("scoreMessage");
 var quizAgain = document.getElementById("quizAgain");
 
-function callPhpFile(){
-var xhr = new XMLHttpRequest();
-xhr.open("POST", "createQuestions.php");
-xhr.onload = function () {
-var javar = this.response;
-console.log(javar);
-//javar = JSON.parse(javar);
-//console.log(javar); // array
-
-//q = javar;
-//console.log(q);
-return javar;
-
-
-
-//return javar;
-};
-
-xhr.send();
-
-q = callPhpFile();
-console.log(q);
-
-
-
-
 let questions = [{
     question: "What is 1 + 1?",
     choiceA: "1",
@@ -124,6 +98,40 @@ let questions = [{
     correctAnswer: "B"
 }, ];
 
+//updates questions array
+function callPhpFile(){
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xhr.open("GET", "createQuestions.php");
+  xhr.send();
+  xhr.onload = function () {
+    var javar = this.response;
+    console.log(javar);
+  };
+  xhr.onload = function() {
+    if (xhr.status != 200) {
+        alert('Error ${xhr.status}: ${xhr.statusText}'); // e.g. 404: Not Found
+    } else { // xhr.responseXML is the server response
+        var questDoc, qList, qs, as, i;
+        questDoc = xhr.responseXML;
+        qs = questDoc.getElementsById("question");
+        as = questDoc.getElementsById("answer");
+        qList = [];
+        for (i = 0; i < x.length; i++){
+          qList.push({question: qs[i].nodeValue,
+            choiceA: as[i*5+0].nodeValue,
+            choiceB: as[i*5+1].nodeValue,
+            choiceC: as[i*5+2].nodeValue,
+            choiceD: as[i*5+3].nodeValue,
+            correctAnswer: as[i*5+4].nodeValue});
+        }
+    }
+  };
+};
 
 //getQuestion function
 function getQuestion() {
