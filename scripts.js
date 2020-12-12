@@ -26,6 +26,32 @@ var scoreBlock = document.getElementById("scoreBlock");
 var scoreMessage = document.getElementById("scoreMessage");
 var quizAgain = document.getElementById("quizAgain");
 
+function callPhpFile(){
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "createQuestions.php");
+xhr.onload = function () {
+var javar = this.response;
+console.log(javar);
+//javar = JSON.parse(javar);
+//console.log(javar); // array
+
+//q = javar;
+//console.log(q);
+return javar;
+
+
+
+//return javar;
+};
+
+xhr.send();
+
+q = callPhpFile();
+console.log(q);
+
+
+
+
 let questions = [{
     question: "What is 1 + 1?",
     choiceA: "1",
